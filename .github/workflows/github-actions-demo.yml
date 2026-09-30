@@ -6,6 +6,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: echo "Declenchement par ${{ github.event_name }}"
       - run: echo "Serveur ${{ runner.os }}"
       - run: echo "Branche ${{ github.ref }} et depot ${{ github.repository }}"
+      - run: python job.py
