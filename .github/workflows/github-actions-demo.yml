@@ -2,15 +2,12 @@ name: GitHub Actions Demo
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "*/5 * * * *"
 
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Declenchement par ${{ github.event_name }}"
-      - run: echo "Serveur ${{ runner.os }}"
-      - run: echo "Branche ${{ github.ref }} et depot ${{ github.repository }}"
       - run: python job.py
+      - name: Creer un fichier
+        run: echo "Fichier genere par la pipeline" > resultat.txt
